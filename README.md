@@ -1,1 +1,1 @@
-# spam-chat-sms-app
+# spam-sms-detection
