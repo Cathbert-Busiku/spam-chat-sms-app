@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+
+<html>
+
+  <head>
+
+     <meta charset="utf-8">
+     <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/socket.io/1.3.6/socket.io.min.js"></script>
+    <script src="{{ url_for('static', filename='index.js') }}"></script>
+    <title>Chat</title>
+    <link rel="stylesheet" type="text/css" href="static/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  </head>
+
+  <body>
+    <div class="chatbox">
+
+      <div  id= "inputAvatarDiv" class="">
+         <p id ="h3"></p>
+
+         <input type="file" id="inputAvatar">
+         <label id ="inputAvatarLabel" for="inputAvatar" class="avatar"></label>
+      </div>
+      <div class="chatlogs">
+
+
+
+
+             {{infor}}
+
+
+
+
+
+          <ul id="chat-wrp" class ="chat-wrp">
+
+          </ul>
+
+
+      </div>
+
+      <form id="sendForm" class="" action="">
+        <textarea id="input-message" type="text-area" name="" value=""></textarea>
+        <button id="input-send" type="submit" name="" value="">Send</button>
+      </form>
+
+
+      <div class="buttons">
+        <div class="dropdown float-left">
+
+          <button class="btn btn-light" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">&#x1F615;
+          </button>
+          <div class="dropdown-menu dropdown-info">
+            <button class="emoji" data-value="0x1F615">&#x1F615;</button>
+            <button class="emoji" data-value="0x1F603">&#x1F603;</button>
+            <button class="emoji" data-value="0x1F605">&#x1F605;</button>
+            <button class="emoji" data-value="0x1F648">&#x1F648;</button>
+
+
+            <button class="emoji" data-value="0x1F60D">&#x1F60D;</button>
+            <button class="emoji" data-value="0x1F61C">&#x1F61C;</button>
+            <button class="emoji" data-value="0x1F618">&#x1F618;</button>
+            <button class="emoji" data-value="0x1F632">&#x1F632;</button>
+
+            <button class="emoji" data-value="0x1F607">&#x1F607;</button>
+            <button class="emoji" data-value="0x1F4AA">&#x1F4AA;</button>
+            <button class="emoji" data-value="0x1F64F">&#x1F64F;</button>
+
+
+
+            <button class="emoji" data-value="0x1F60E">&#x1F60E;</button>
+            <button class="emoji" data-value="0x1F633">&#x1F633;</button>
+            <button class="emoji" data-value="0x1F496">&#x1F496;</button>
+            <button class="emoji" data-value="0x1F4AF">&#x1F4AF;</button>
+
+
+
+          </div>
+        </div>
+
+
+        <div class="dropdown float-left">
+          <button class="btn btn-light" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">#
+          </button>
+
+            <div  class="dropdown-menu dropdown-info">
+
+            <input id="post-channel" type="text-area" class="form-control">
+
+            <button id="inputChannelButton" type="submit" class="form-control">Add channel</button>
+            <br>
+
+            <div  id="newItem" >
+
+            </div>
+
+            </div>
+        </div>
+
+        <div class="dropdown float-left">
+          <button class="btn btn-light" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">@
+          </button>
+
+          <div class="dropdown-menu dropdown-info">
+            <input id="post-username" type="text-area" class="form-control">
+
+            <button id="inputUserButton" type="submit" class="form-control">Add username</button>
+          </div>
+        </div>
+
+
+        <div class="dropdown float-left">
+          <button  id="GIF" class="btn btn-light" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">GIF
+          </button>
+
+          <div id="divGIF" class="dropdown-menu dropdown-info">
+
+            <input id="searchGIF" type="text-area" class="form-control">
+
+            <button id="searchGIFButton" type="submit" class="form-control">Search gif</button>
+            <div id="gifs">
+
+            </div>
+          </div>
+        </div>
+
+
+
+        <div  id="inputImageButton" class="dropdown float-left input-label btn btn-light">
+
+          <input  type="file" id="imagefile" accept="image/*"><i class="fa fa-file-picture-o"></i>
+
+
+          </div>
+          <div class="brushes">
+
+          <button  class="navLabel"   id ="blue" name="blue"><i class="fa fa-paint-brush" style="color:blue"></i></i></button>
+          <button class="navLabel"   id ="red" name="red"><i class="fa fa-paint-brush" style="color:red"></i></button>
+          <button class="navLabel"   id ="grey" name="grey"><i class="fa fa-paint-brush" style="color:grey"></i></button>
+          </div>
+
+          </div>
+
+<!--<span><i class="fa fa-file-picture-o"></i><span>-->
+
+
+</div>
+
+
+
+
+    </div>
+    </body>
+</html>
