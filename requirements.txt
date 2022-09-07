@@ -36,8 +36,8 @@ monotonic==1.5
 
 
 
-python-engineio==3.5.1
 
+python-engineio>=3.9.0
 python-socketio==4.3.0
 
 six==1.12.0
