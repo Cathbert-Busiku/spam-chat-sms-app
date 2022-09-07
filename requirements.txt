@@ -6,7 +6,7 @@ greenlet
 
 Flask==1.1.1
 Flask-SocketIO==4.2.1
-gunicorn==18.0.0
+gunicorn
 eventlet==0.25.1
 requests==2.23.0
 Werkzeug==0.16.0
