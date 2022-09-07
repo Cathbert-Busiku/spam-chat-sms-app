@@ -23,7 +23,7 @@ body{
 @media(max-width: 600px){
     
     .chatbox{
-        width: 98%;
+        width: 90%;
         height: 100%;
         min-width: 390px;
         background: #ffb3b3;
