@@ -1,6 +1,8 @@
 certifi==2019.3.9
 
-
+cffi
+pycparser
+greenlet
 
 chardet==3.0.4
 
