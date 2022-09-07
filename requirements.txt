@@ -1,6 +1,6 @@
 certifi==2019.3.9
 
-cffi==1.12.2
+cffi
 
 chardet==3.0.4
 
@@ -26,7 +26,7 @@ MarkupSafe==1.1.1
 
 monotonic==1.5
 
-pycparser==2.19
+pycparser
 
 python-engineio==3.5.1
 
