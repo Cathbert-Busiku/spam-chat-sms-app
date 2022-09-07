@@ -1,5 +1,8 @@
 certifi==2019.3.9
 
+cffi
+pycparser
+greenlet
 
 
 chardet==3.0.4
@@ -26,7 +29,7 @@ MarkupSafe==1.1.1
 
 monotonic==1.5
 
-web: gunicorn -k eventlet -w 1 application:app
+
 
 python-engineio==3.5.1
 
